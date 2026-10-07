@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PackSmart MVP — Duty &amp; Packaging Estimator</title>
+  <meta name="description" content="Upload-free import duty &amp; packaging estimator for Silk Route-style shipments." />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="wrap">
+      <span class="logo-mark" aria-hidden="true">▦</span>
+      <div>
+        <h1>PackSmart MVP</h1>
+        <p class="tagline">Import duty &amp; packaging estimator</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card input-card">
+      <h2>Estimate a shipment</h2>
+      <form id="estimate-form" autocomplete="off" novalidate>
+        <div class="quick-row" id="quick-picks"></div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="sku">SKU</label>
+            <input id="sku" name="sku" value="SKU-0001" />
+          </div>
+
+          <div class="field">
+            <label for="description">Product description</label>
+            <input
+              id="description"
+              name="description"
+              placeholder="e.g. Ceramic coffee mug"
+              list="suggestions"
+            />
+            <datalist id="suggestions"></datalist>
+          </div>
+
+          <div class="field">
+            <label for="weight_lb">Weight <span class="unit">(lb)</span></label>
+            <input id="weight_lb" name="weight_lb" type="number" min="0" step="0.01" placeholder="0.5" />
+          </div>
+
+          <div class="field">
+            <label for="length_in">Length <span class="unit">(in)</span></label>
+            <input id="length_in" name="length_in" type="number" min="0" step="0.1" placeholder="4" />
+          </div>
+
+          <div class="field">
+            <label for="width_in">Width <span class="unit">(in)</span></label>
+            <input id="width_in" name="width_in" type="number" min="0" step="0.1" placeholder="4" />
+          </div>
+
+          <div class="field">
+            <label for="height_in">Height <span class="unit">(in)</span></label>
+            <input id="height_in" name="height_in" type="number" min="0" step="0.1" placeholder="4" />
+          </div>
+
+          <div class="field">
+            <label for="origin_country">Origin country</label>
+            <input id="origin_country" name="origin_country" placeholder="e.g. China, USA" />
+          </div>
+
+          <div class="field">
+            <label for="declared_value">Declared value <span class="unit">($)</span></label>
+            <input id="declared_value" name="declared_value" type="number" min="0" step="0.01" placeholder="15.00" />
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" id="estimate-btn" class="primary">Estimate</button>
+          <button type="button" id="clear-btn" class="ghost">Clear</button>
+        </div>
+      </form>
+
+      <p class="hint">
+        Type a product and its dims; the engine matches it against a sample HS-code
+        lookup and returns duty, box, and shipping estimates.
+      </p>
+    </section>
+
+    <section class="card results-card" id="results-card" hidden aria-live="polite">
+      <h2>Estimate</h2>
+      <div id="result"></div>
+      <p class="hint" id="result-hint"></p>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="wrap">
+      <p>PackSmart MVP — illustrative prototype. Verify HS codes with a licensed broker.</p>
+    </div>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PackSmart MVP — Preview</title>
+<style>:root {
+  --bg: #f6f5f2;
+  --surface: #ffffff;
+  --border: #e3e0d9;
+  --text: #2b2b28;
+  --muted: #7a756e;
+  --accent: #1f4e5f;
+  --accent-soft: #e8f1f2;
+  --danger: #b00020;
+  --danger-soft: #faeceb;
+  --shadow: 0 1px 3px rgba(43, 43, 40, 0.08), 0 1px 2px rgba(43, 43, 40, 0.04);
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.app-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 0;
+}
+
+.app-header h1 {
+  margin: 0 0 4px;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.logo-mark {
+  display: inline-block;
+  font-size: 26px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+main {
+  padding: 24px 0 16px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+h2 {
+  margin: 0 0 16px;
+  font-size: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+.field.full { grid-column: 1 / -1; }
+
+label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 15px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+.unit {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  align-items: center;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+button:hover { background: var(--bg); }
+
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+button.primary:hover { background: #184250; }
+
+button.ghost:hover { background: var(--bg); }
+
+.hint {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Quick-pick chips */
+.quick-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.chip {
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.chip:hover { background: var(--accent-soft); }
+
+/* Results */
+.results-card {
+  margin-top: 18px;
+  border-color: var(--accent-soft);
+  background: var(--accent-soft);
+}
+
+.section {
+  margin-top: 16px;
+}
+
+.subsection {
+  margin: 0 0 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(43, 43, 40, 0.07);
+}
+
+.row:last-of-type { border-bottom: none; }
+
+.k {
+  flex: 0 0 140px;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.v {
+  flex: 1;
+  text-align: right;
+  font-size: 14px;
+}
+
+.v.muted { color: var(--muted); }
+
+.dim { color: var(--muted); font-size: 12px; font-weight: 400; }
+
+.total-row .v {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.app-footer {
+  margin-top: 24px;
+  padding: 16px 0 32px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid var(--border);
+}
+</style>
+</head>
+<body>
+  <header class="app-header">
+    <div class="wrap">
+      <span class="logo-mark">▦</span>
+      <div><h1>PackSmart MVP</h1><p class="tagline">Import duty &amp; packaging estimator</p></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card input-card">
+      <h2>Estimate a shipment</h2>
+      <p class="hint">Form + live estimate above · Quick-pick chips in the full page.</p>
+    </section>
+
+    <section class="card results-card">
+      <h2>Demo result — Wool sweater, China</h2>
+      <div id="result">
+        <div class="row"><span class="k">SKU</span><span class="v">SKU0002</span></div><div class="row"><span class="k">Description</span><span class="v">Wool sweater</span></div><div class="row"><span class="k">Origin</span><span class="v">China</span></div><div class="row"><span class="k">Declared value</span><span class="v">$45.00</span></div><div class="row"><span class="k">HS code</span><span class="v">6110</span></div><div class="row"><span class="k">Duty rate</span><span class="v">13.0%</span></div><div class="row"><span class="k">Duty owed</span><span class="v">$5.85</span></div><div class="row"><span class="k">Actual weight</span><span class="v">0.7 lb</span></div><div class="row"><span class="k">Dimensional weight</span><span class="v">7.19 lb</span></div><div class="row"><span class="k">Billing weight</span><span class="v">7.19 lb</span></div><div class="row"><span class="k">Recommended box</span><span class="v">Extra Large Box (14.0 x 14.0 x 10.0 in)</span></div><div class="row"><span class="k">Shipping</span><span class="v">$7.60</span></div><div class="row"><span class="k">Total</span><span class="v">$13.45</span></div>
+        <p class="hint">Illustrative prototype. Verify HS code with a licensed broker.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="wrap"><p>PackSmart MVP — illustrative prototype. Verify HS codes with a licensed broker.</p></div>
+  </footer>
+</body></html>

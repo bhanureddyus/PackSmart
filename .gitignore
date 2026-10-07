@@ -1,0 +1,17 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Env / secrets
+.env
+.env.*
+
+# Generated artifacts (bulk CSV upload output, etc.)
+recommendations.csv
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp

@@ -1,0 +1,9 @@
+sku,description,weight_lb,length_in,width_in,height_in,origin_country,declared_value
+SKU001,Ceramic coffee mug,0.5,4,4,4,China,15.00
+SKU002,Wool sweater,0.7,20,10,5,China,45.00
+SKU003,Smartphone,0.2,5,3,1,China,600.00
+SKU004,Tea bags,0.1,10,8,6,China,20.00
+SKU005,Desk lamp,1.0,12,8,6,USA,30.00
+SKU006,Cotton t-shirt,0.3,18,12,4,China,25.00
+SKU007,Pingles pot,0.4,5,5,5,China,28.00
+SKU008,LED desk lamp,0.1,8,6,6,China,35.00
