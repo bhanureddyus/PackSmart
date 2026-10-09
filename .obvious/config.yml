@@ -1,0 +1,5 @@
+# .obvious/config.yml — repo policy for obvious setup automation
+# Detected from GitHub repo settings on 2026-10-09.
+default_branch: main
+merge_method: squash          # squash allowed; merge commit and rebase are also enabled on GitHub
+require_human_merge: true     # human approval required before default-branch setup PRs merge
